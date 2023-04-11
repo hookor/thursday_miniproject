@@ -3,6 +3,10 @@ let outputs = [];
 for(const a of titles){
     outputs.push(a.innerText);
 } */
+
+const $ = document.querySelector.bind(document)
+const $$ = document.querySelectorAll.bind(document)
+
 const titles = [
   '(L) ICED 넛츠 크림 라떼',
   '아포가토 오리지널',
