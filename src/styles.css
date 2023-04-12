@@ -53,13 +53,14 @@ section .search-container button:hover {
 }
 
 .display-section {
-  display: flex;
+  display: none;
   width: 50%;
   height: 20%;
   flex-direction: column;
   border: 2px solid #6f4e37;
   border-radius: 20px;
   padding: 20px;
+  margin-bottom: 50px;
 }
 .display {
   border-bottom: 2px solid #6f4e37;

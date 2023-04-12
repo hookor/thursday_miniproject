@@ -135,23 +135,37 @@ $('.searchbar').addEventListener('keyup', function (e) {
   if (e.code === 'Enter') {
     const beverage = e.target.value
     const keys = Object.keys(cafdata)
+    const values = Object.values(cafdata)
+
+    let caffeinebox = []
+    let emojibox = []
+    for (a of values) {
+      let convertedNum = Number(a.replace(/[^0-9]/g, ''))
+      caffeinebox.push(Number(a.replace(/[^0-9]/g, '')))
+      if (convertedNum > 400) {
+        emojibox.push('☠')
+      } else if (400 >= convertedNum && convertedNum > 300) {
+        emojibox.push('❤‍🔥')
+      } else if (300 >= convertedNum && convertedNum > 200) {
+        emojibox.push('🧠')
+      } else if (200 >= convertedNum && convertedNum > 100) {
+        emojibox.push('☕')
+      } else {
+        emojibox.push('🤨')
+      }
+    }
+    console.log(caffeinebox)
+    console.log(typeof caffeinebox[0])
+    console.log(emojibox)
 
     keys.filter((key, index) => {
       if (key.indexOf(beverage) !== -1) {
-        console.log(keys[index])
+        $('.display-section').style.display = 'flex'
+        const item = document.createElement('div')
+        item.classList.add('display')
+        item.innerHTML = `${keys[index]}: ${values[index]} ${emojibox[index]}`
+        $('.display-section').appendChild(item)
       }
-
-      // ('.display-section').createElement(div)
     })
   }
 })
-
-//#############DOMAIN LOGIC
-function caffeineFilter() {}
-// (caf > 400)? skull:
-// (caf > 300)? hof:
-// (caf > 200)? cof:
-// (caf > 100)? brain: zzz
-
-//#############VIEW LOGIC
-function showContainer() {}
