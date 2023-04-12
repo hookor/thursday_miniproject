@@ -139,7 +139,7 @@ $('.searchbar').addEventListener('keyup', function (e) {
 
     let caffeinebox = []
     let emojibox = []
-    for (a of values) {
+    for (const a of values) {
       let convertedNum = Number(a.replace(/[^0-9]/g, ''))
       caffeinebox.push(Number(a.replace(/[^0-9]/g, '')))
       if (convertedNum > 400) {
