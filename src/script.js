@@ -131,5 +131,27 @@ const cafdata = titles.reduce((acc, curr, idx) => {
   return acc
 }, new Object())
 
-/* skull < 400, heart on fire < 300, coffee < 200, zzz < 100 show cafdata with the emoji in front of dataname*/
+$('.searchbar').addEventListener('keyup', function (e) {
+  if (e.code === 'Enter') {
+    const beverage = e.target.value
+    const keys = Object.keys(cafdata)
+
+    keys.filter((key, index) => {
+      if (key.indexOf(beverage) !== -1) {
+        console.log(keys[index])
+      }
+
+      // ('.display-section').createElement(div)
+    })
+  }
+})
+
+//#############DOMAIN LOGIC
 function caffeineFilter() {}
+// (caf > 400)? skull:
+// (caf > 300)? hof:
+// (caf > 200)? cof:
+// (caf > 100)? brain: zzz
+
+//#############VIEW LOGIC
+function showContainer() {}
